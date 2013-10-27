@@ -16,13 +16,14 @@ public class Cascade extends CardCollect  {
 		
 	}
 
-	
-//public String toString (){
-//		StringBuilder result = new StringBuilder();
-//			result.append("CASCADE: ");
-//			result.append(this.cascade.getCards());
-//		return result.toString();
-//	}
+
+    @Override
+public String toString (){
+		StringBuilder result = new StringBuilder();
+			result.append("CASCADE: ");
+			result.append(super.toString());
+		return result.toString();
+	}
 	
 	
 	/*Case (1) the stack is empty, 

@@ -3,32 +3,32 @@ import java.util.*;
 
 public class CardCollect extends Stack <Card> {
 	
-	private Stack<Card> cardcollect = new Stack<Card>();
+	//private Stack<Card> cardcollect = new Stack<Card>();
 
 	public CardCollect(){
 	
 	}
 	
 	public void pushCard(Card card){
-		cardcollect.push(card);
+		push(card);
 	}
 	
 	public Card popTopCard(){
-		if (cardcollect.isEmpty()) { 
+		if (isEmpty()) {
 			return null;
 			}
-		else return cardcollect.pop();  //pop off the top card of the column
+		else return pop();  //pop off the top card of the column
 	}
 	
 	public Card peekTopCard(){
-		if (cardcollect.isEmpty()){
+		if (isEmpty()){
 		return null;
 		}
-		return cardcollect.peek();
+		return peek();
 	}
 	
 	public boolean canPlayFrom(){ //return TRUE if not empty?
-		if (cardcollect.isEmpty()){
+		if (isEmpty()){
 			System.out.println("COLLECT SAYS: empty");
 			return false;
 		}
@@ -47,22 +47,28 @@ public class CardCollect extends Stack <Card> {
 	public boolean playTo(CardCollect cards){
 		return true;
 	}
-	
-	public Stack<Card> getCards(){
-		return cardcollect;
-	}
+
+    //you don't need a method for this.  CardCollect /is/ a Stack of Cards so you can use the
+    //instantiated object whenever you would use this method
+//	public Stack<Card> getCards(){
+//		return cardcollect;
+//	}
 	
 	public int size(){
-		return cardcollect.size();
+		return super.size(); //see how this is redundant?
+		// since Stack has a size() and CardCollect is a Stack, we can just use CardCollect.size() without
+        //implementing this method.
 	}
-	
-	@Override public String toString(){
-		return cardcollect.toString();
-	}
+
+    //this is redundant as well.
+//	@Override public String toString(){
+//		return cardcollect.toString();
+//	}
 	
 	public Card[] toArray(){
-		Card[] arr = (Card[]) cardcollect.toArray();
-		return arr;   //TODO FIX
+		//Card[] arr = (Card[]) cardcollect.toArray();
+		//return arr;   //TODO FIX
+        return toArray();
 	}
 	
 	public static void main(String[] args) {
